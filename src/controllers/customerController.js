@@ -25,14 +25,12 @@ export const checkLogin = async (req, res) => {
 
     // Execute the query with the appropriate parameter
     const [rows] = await pool.query(query, [identifier, hashedPassword]);
-
+    console.log(identifier,password,hashedPassword)
     if (rows.length > 0) {
-      res.send("success");
-      console.log(identifier,hashedPassword)
+      res.render("home");
+      
     } else {
-      res.send("fail");
-      console.log(identifier,hashedPassword)
-
+      res.render("login");
     }
   }
 
