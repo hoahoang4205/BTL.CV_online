@@ -8,7 +8,6 @@ export const pool = createPool({
   database: "cv_information",
 });
 
-
 async function hashPasswords() {
   const [rows] = await pool.query('SELECT id, password FROM candidate');
 
@@ -16,9 +15,9 @@ async function hashPasswords() {
     const hashedPassword = createHash('md5').update(row.password).digest('hex');
     await pool.query('UPDATE candidate SET password = ? WHERE id = ?', [hashedPassword, row.id]);
   }
-
+  
   console.log('Passwords have been hashed');
 }
 
 hashPasswords().catch(err => console.error(err));
-export default pool;
+export default pool; 
