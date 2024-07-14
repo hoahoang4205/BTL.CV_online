@@ -158,10 +158,10 @@ export const checkLogin = async (req, res) => {
     const { phone, first_name, age, language,address,position, short_goal, short_description,slogan,domain,map,
       skill_id, skill, skill_level,
       social_id, social_name, link_social ,
-      education_id, specialization, education_level,education_short_desciption,education_start_time,education_end_time,
+      education_id, specialization, education_level,education_short_description,education_start_time,education_end_time,
       company_id, company_name, company_contact,company_address,company_start_time,company_end_time,company_position,
-      experience_id, experience, experience_short_desciption,
-      achivement_id, achivement_name, achivement_count,
+      experience_id, experience, experience_short_description,
+      achievement_id, achievement_name, achievement_count,
       portfolio_id,portfolio_image,portfolio_overlay_img 
     } = req.body;
   
@@ -170,7 +170,7 @@ export const checkLogin = async (req, res) => {
       await pool.query("INSERT INTO educations (id, specialization) VALUES (?, ?)", [education_id, specialization])
       await pool.query("INSERT INTO company (id, name, contact, address) VALUES (?, ?, ?, ?)", [ company_id, company_name, company_contact,company_address])
       await pool.query("INSERT INTO experiences (id, experience) VALUES (?, ?)", [experience_id, experience])
-      await pool.query("INSERT INTO achievements (id, name, count) VALUES (?, ?, ?)", [ achivement_id, achivement_name, achivement_count])
+      await pool.query("INSERT INTO achievements (id, name, count) VALUES (?, ?, ?)", [ achivement_id, achievement_name, achievement_count])
       await pool.query("INSERT INTO portfolio (id, image,overlay_img) VALUES (?, ?, ?)", [portfolio_id,portfolio_image,portfolio_overlay_img])
   
       await pool.query(
@@ -180,10 +180,10 @@ export const checkLogin = async (req, res) => {
 
       await pool.query("UPDATE candidate_skill SET skill_id = ?, level = ? WHERE candidate_id = ?", [skill_id, skill_level, id]);
       await pool.query("UPDATE candidate_social SET social_id = ?, link = ? WHERE candidate_id = ?", [social_id, link_social, id]);
-      await pool.query("UPDATE candidate_education SET education_id = ?, level = ?, start_time = ?, end_time = ?, short_description = ? WHERE candidate_id = ? ", [education_id,education_level,education_start_time,education_end_time,education_short_desciption, id]);
+      await pool.query("UPDATE candidate_education SET education_id = ?, level = ?, start_time = ?, end_time = ?, short_description = ? WHERE candidate_id = ? ", [education_id,education_level,education_start_time,education_end_time,education_short_description, id]);
       await pool.query("UPDATE candidate_company SET company_id = ?, start_time = ?, end_time = ?, positon = ? WHERE candidate_id = ?", [company_id, company_start_time, company_end_time, company_position, id]);
-      await pool.query("UPDATE candidate_experience SET experience_id = ?, short_description = ?,company_id = ?  WHERE candidate_id = ?", [experience_id, experience_short_desciption,company_id, id]);
-      await pool.query("UPDATE candidate_achievement SET achievement_id = ? WHERE candidate_id = ?", [achivement_id, id]);
+      await pool.query("UPDATE candidate_experience SET experience_id = ?, short_description = ?,company_id = ?  WHERE candidate_id = ?", [experience_id, experience_short_description,company_id, id]);
+      await pool.query("UPDATE candidate_achievement SET achievement_id = ? WHERE candidate_id = ?", [achievement_id, id]);
       await pool.query("UPDATE skill_portfolio SET portfolio_id = ?,skill_id = ?  WHERE candidate_id = ?", [portfolio_id,skill_id, id]);
   
       res.redirect("/");
