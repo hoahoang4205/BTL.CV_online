@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create CV</title>
+    <link rel="stylesheet" href="/css/info.css" />
+</head>
+<body>
+    <div class="form-holder">     
+        <form action="/info?id=<%= newCandidateId %>" method="post">
+            <h3>Create CV</h3>
+            
+            <div class="section">
+                <div class="section-title">Personal Information</div>
+                <input class="form-control" type="number" name="phone" id="phone" placeholder="Enter your phone" required>
+                <input class="form-control" type="text" name="first_name" id="first_name" placeholder="Enter your first name" required>
+                <input class="form-control" type="number" name="age" id="age" placeholder="Enter your age" required>
+                <input class="form-control" type="text" name="language" id="language" placeholder="Enter your language" required>
+                <input class="form-control" type="text" name="address" id="address" placeholder="Enter your address" required>
+                <input class="form-control" type="text" name="position" id="position" placeholder="Enter your position" required>
+                <input class="form-control" type="text" name="short_goal" id="short_goal" placeholder="Enter your short goal" required>
+                <input class="form-control" type="text" name="short_description" id="short_description" placeholder="Enter your short description" required>
+                <input class="form-control" type="text" name="slogan" id="slogan" placeholder="Enter your slogan" required>
+                <input class="form-control" type="text" name="domain" id="domain" placeholder="Enter your domain">
+                <input class="form-control" type="text" name="map" id="map" placeholder="Enter your link map" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Skills</div>
+                <input class="form-control" type="number" name="skill_id" id="skill_id" placeholder="Enter skill ID" required>
+                <input class="form-control" type="text" name="skill" id="skill" placeholder="Enter your skill" required>
+                <input class="form-control" type="text" name="skill_level" id="skill_level" placeholder="Enter your skill level" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Socials</div>
+                <input class="form-control" type="number" name="social_id" id="social_id" placeholder="Enter social ID" required>
+                <input class="form-control" type="text" name="social_name" id="social_name" placeholder="Enter your social name" required>
+                <input class="form-control" type="text" name="link_social" id="link_social" placeholder="Enter your social link" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Education</div>
+                <input class="form-control" type="number" name="education_id" id="education_id" placeholder="Enter education ID" required>
+                <input class="form-control" type="text" name="specialization" id="specialization" placeholder="Enter your specialization" required>
+                <input class="form-control" type="text" name="education_level" id="education_level" placeholder="Enter your education level" required>
+                <input class="form-control" type="text" name="education_short_description" id="education_short_description" placeholder="Enter your education short description" required>
+                <input class="form-control" type="text" name="education_start_time" id="education_start_time" placeholder="Enter your education start time" required>
+                <input class="form-control" type="text" name="education_end_time" id="education_end_time" placeholder="Enter your education end time" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Experiences</div>
+                <input class="form-control" type="number" name="experience_id" id="experience_id" placeholder="Enter experience ID" required>
+                <input class="form-control" type="text" name="experience" id="experience" placeholder="Enter your experience" required>
+                <input class="form-control" type="text" name="experience_short_description" id="experience_short_description" placeholder="Enter your experience short description" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Company</div>
+                <input class="form-control" type="number" name="company_id" id="company_id" placeholder="Enter company ID" required>
+                <input class="form-control" type="text" name="company_name" id="company_name" placeholder="Enter company name" required>
+                <input class="form-control" type="text" name="company_contact" id="company_contact" placeholder="Enter company contact" required>
+                <input class="form-control" type="text" name="company_address" id="company_address" placeholder="Enter company address" required>
+                <input class="form-control" type="text" name="company_start_time" id="company_start_time" placeholder="Enter company start time" required>
+                <input class="form-control" type="text" name="company_end_time" id="company_end_time" placeholder="Enter company end time" required>
+                <input class="form-control" type="text" name="company_position" id="company_position" placeholder="Enter company position" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Achievements</div>
+                <input class="form-control" type="number" name="achievement_id" id="achievement_id" placeholder="Enter achievement ID" required>
+                <input class="form-control" type="text" name="achievement_name" id="achievement_name" placeholder="Enter achievement name" required>
+                <input class="form-control" type="text" name="achievement_count" id="achievement_count" placeholder="Enter achievement count" required>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Portfolio</div>
+                <input class="form-control" type="number" name="portfolio_id" id="portfolio_id" placeholder="Enter portfolio ID" required>
+                <input class="form-control" type="text" name="portfolio_image" id="portfolio_image" placeholder="Enter portfolio image" required>
+                <input class="form-control" type="text" name="portfolio_overlay_img" id="portfolio_overlay_img" placeholder="Enter portfolio overlay image" required>
+            </div>
+            
+            <div class="form-button">
+                <button id="submit" type="submit" class="ibtn">Register</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

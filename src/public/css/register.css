@@ -1,0 +1,78 @@
+body {
+    background-color: #043e67;
+}
+.website-logo {
+    display: inline-block;
+    top: 50px;
+    left: 50px;
+    right: initial;
+    bottom: initial;
+}
+.website-logo img {
+    width: 100px;
+}
+.website-logo .logo {
+    background-image: url("../images/logo-light.svg");
+}
+.website-logo .logo img {
+    width: 100px;
+}
+.img-holder {
+    width: 550px;
+    background-color: #000000;
+}
+.img-holder .info-holder h3 p h2{
+    text-align: left;
+}
+.img-holder .info-holder h3 span h2 p {
+    color: #fff;
+}
+.img-holder .bg {
+    opacity: 0.23;
+    background-image: url("../images/img1.jpg");
+}
+.form-holder {
+    margin-left: 550px;
+}
+.form-content .form-items {
+    max-width: 340px;
+    text-align: left;
+}
+.form-content h3 p {
+    color: #fff;
+    text-align: left;
+}
+.form-content .form-button .ibtn {
+    background-color: #fff;
+    color: #29A4FF;
+}
+.form-content .form-button a {
+    color: #fff;
+}
+.form-content .info-holder {
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+.form-content .info-holder span a {
+    color: #fff;
+}
+.page-links a {
+    text-decoration: none; /* Loại bỏ gạch chân mặc định */
+    position: relative; 
+}
+.page-links a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px; /* Khoảng cách từ chữ đến gạch chân */
+    width: 100%;
+    height: 2px; /* Độ dày của gạch chân */
+    background-color: white;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+.page-links a.active:after,
+.page-links a:hover:after {
+    visibility: visible;
+    transform: scaleX(1);
+}

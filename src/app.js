@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
 app.get('/register', (req, res) => {
     res.render('register');
 });
+app.get('/createinf', (req, res) => {
+    const { id } = req.query;  // Lấy newCandidateId từ query parameters
+    res.render('createInformation', { newCandidateId: id });  // Truyền newCandidateId vào view
+});
 // middlewares
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));

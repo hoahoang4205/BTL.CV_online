@@ -6,7 +6,7 @@ $(document).ready(function () {
   var btn = $('#scrollup');
 
   $(window).scroll(function() {
-    if ($(window).scrollTop() > 300) {
+    if ($(window).scrollTop() > 0) {
       btn.addClass('show');
     } else {
       btn.removeClass('show');
@@ -18,7 +18,7 @@ $(document).ready(function () {
     $('html, body').animate({scrollTop:0}, '300');
   });
 
-  
+
 
   /*--------------------- Aos animation on scroll --------------------*/
   AOS.init({
@@ -44,23 +44,21 @@ $(document).ready(function () {
 
 
 
-// đổi màu menu 
     var lastId,
     topMenu = $("#top-menu"),
-    topMenuHeight = topMenu.outerHeight()-230,
-    // All list items
+    topMenuHeight = topMenu.outerHeight()-220,
     menuItems = topMenu.find("a"),
-    // Anchors corresponding to menu items
     scrollItems = menuItems.map(function(){
       var item = $($(this).attr("href"));
       if (item.length) { return item; }
     });
-
-    // Bind click handler to menu items
-    // so we can get a fancy scroll animation
+    btn.on('click', function(e) {
+      e.preventDefault();
+      $('html, body').animate({scrollTop:0}, '300');
+    });
     menuItems.click(function(e){
     var href = $(this).attr("href"),
-      offsetTop = href === "#" ? 0 : $(href).offset().top-topMenuHeight+1; // nếu href = # thì cuộn trang nếu kh thì đoạn mã này sẽ lấy phần tử trên trang mà href liên kết tới.
+      offsetTop = href === "#" ? 0 : $(href).fadeIn(); ; 
     $('html, body').stop().animate({ 
       scrollTop: offsetTop
     }, 300);
