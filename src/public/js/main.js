@@ -18,9 +18,6 @@ $(document).ready(function () {
     $('html, body').animate({scrollTop:0}, '300');
   });
 
-
-
-  /*--------------------- Aos animation on scroll --------------------*/
   AOS.init({
     once: true
   });
@@ -65,7 +62,7 @@ $(document).ready(function () {
     e.preventDefault();
     });
 
-    // Bind to scroll đổi màu chữ khi chuyển xuống
+    
     $(window).scroll(function(){
     // Get container scroll position
     var fromTop = $(this).scrollTop()+topMenuHeight;
@@ -75,7 +72,7 @@ $(document).ready(function () {
     if ($(this).offset().top < fromTop)
       return this;
     });
-    // Get the id of the current element
+   
     cur = cur[cur.length-1];
     var id = cur && cur.length ? cur[0].id : "";
 
