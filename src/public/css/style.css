@@ -427,18 +427,7 @@ header .active .nav-link {
   top: 10px;
   animation: scrollDownAnimation 2s infinite;
 }
-.ms-home-snow {
-  background-attachment: fixed !important;
-  overflow: hidden;
-}
-.ms-home-snow:after {
-  content: none !important;
-}
-.ms-home-snow #canvas {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+
 
 .custom-btn {
   width: 130px;
