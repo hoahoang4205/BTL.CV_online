@@ -106,7 +106,7 @@
                                 <% candidateSkills.forEach(candidateSkill => { %>
                                     <h5><%= candidateSkill.skill %></h5>
                                     <div class="progress" data-percent="<%= candidateSkill.level %>%">
-                                        <div class="progress-done progress-done-<%= candidateSkill.skill.toLowerCase() %>" role="progressbar">
+                                        <div class="progress-done" role="progressbar">
                                             <span><%= candidateSkill.level %>%</span>
                                         </div>
                                     </div>
@@ -272,9 +272,9 @@
                                     <div class="col-sm-12" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="400">
                                         <div class="portfolio-tabs">
                                             <ul>
-                                                <li class="filter" data-filter="all">ALL</li>
+                                                <li class="filter">ALL</li>
                                                 <% uniqueSkills.forEach(skill => { %>
-                                                    <li class="filter" data-filter=".<%= skill.toLowerCase() %>"><%= skill %></li>
+                                                    <li class="filter><%= skill %></li>
                                                   <% }) %>
                                                   
                                             </ul>
@@ -293,7 +293,7 @@
                                                             <div class="overlay">
                                                                 <div class="overlay-info">
                                                                     <a class="info" href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                                                    <a class="info" data-fancybox="gallery" href="/images/portfolio/<%= skillportfolio.overlay_img %>"><i class="fa fa-search" aria-hidden="true"></i></a>
+                                                                    <a class="info" href="/images/portfolio/<%= skillportfolio.overlay_img %>"><i class="fa fa-search" aria-hidden="true"></i></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -319,7 +319,7 @@
                     <div class="row achive m-tb-minus-12px" id="counter">
                         <% candidateAchievement.forEach(candidateachievement => { %>
                             <div class="col-lg-3 col-sm-12" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="200">
-                                <div class="count-block" data-tilt>
+                                <div class="count-block">
                                     <h3><span class="counter counter-value" data-count="<%= candidateachievement.count%>"><%= candidateachievement.count%></span>+</h3>
                                     <p><%= candidateachievement.name%></p>
                                 </div>
@@ -434,8 +434,6 @@
         </div>
     </div>
         
-    
-    <!-- Whatsapp end -->
 
     <!-- Page Scroll Top -->
     <div id="scrollup">
@@ -447,7 +445,6 @@
      <script src="/js/plugins/jquery-3.5.1.min.js"></script>
      <script src="/js/plugins/fontawesome.js"></script>
     <script src="/js/plugins/aos.min.js"></script>
-    <script src="/js/plugins/snow.js"></script>
 
     
     <!-- Main Js -->
