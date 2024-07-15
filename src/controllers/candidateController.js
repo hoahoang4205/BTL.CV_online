@@ -153,7 +153,7 @@ export const checkLogin = async (req, res) => {
   };
   
   export const infoCandidates = async (req, res) => {
-    const { id } = req.query;  // Lấy newCandidateId từ query parameters
+    const { id } = req.query;  
     
     const { phone, first_name, age, language,address,position, short_goal, short_description,slogan,domain,map,
       skill_id, skill, skill_level,
@@ -170,7 +170,7 @@ export const checkLogin = async (req, res) => {
       await pool.query("INSERT INTO educations (id, specialization) VALUES (?, ?)", [education_id, specialization])
       await pool.query("INSERT INTO company (id, name, contact, address) VALUES (?, ?, ?, ?)", [ company_id, company_name, company_contact,company_address])
       await pool.query("INSERT INTO experiences (id, experience) VALUES (?, ?)", [experience_id, experience])
-      await pool.query("INSERT INTO achievements (id, name, count) VALUES (?, ?, ?)", [ achivement_id, achievement_name, achievement_count])
+      await pool.query("INSERT INTO achievements (id, name, count) VALUES (?, ?, ?)", [ achievement_id, achievement_name, achievement_count])
       await pool.query("INSERT INTO portfolio (id, image,overlay_img) VALUES (?, ?, ?)", [portfolio_id,portfolio_image,portfolio_overlay_img])
   
       await pool.query(
@@ -186,6 +186,16 @@ export const checkLogin = async (req, res) => {
       await pool.query("UPDATE candidate_achievement SET achievement_id = ? WHERE candidate_id = ?", [achievement_id, id]);
       await pool.query("UPDATE skill_portfolio SET portfolio_id = ?,skill_id = ?  WHERE candidate_id = ?", [portfolio_id,skill_id, id]);
   
+      const [rows] = await pool.query('SELECT id, password FROM candidate');
+
+      for (const row of rows) {
+        const hashedPassword = createHash('md5').update(row.password).digest('hex');
+        await pool.query('UPDATE candidate SET password = ? WHERE id = ?', [hashedPassword, row.id]);
+      }
+      
+      console.log('Passwords have been hashed');
+    
+    
       res.redirect("/");
 
   };
